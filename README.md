@@ -138,6 +138,7 @@ Configure domain and SSL
 <h2>📸 Screenshots</h2>
 
 <img width="2880" height="1576" alt="anniversary" src="https://github.com/user-attachments/assets/e511f9f4-3fb3-4b3d-bce8-c50489768671" />
+
 <img width="2855" height="1573" alt="Screenshot (99)" src="https://github.com/user-attachments/assets/03adedda-845d-41d0-935b-8d7ccd48244c" />
 
 <img width="2862" height="1570" alt="Screenshot (98)" src="https://github.com/user-attachments/assets/394a4328-964e-41ef-8ae0-e2085316af88" />
