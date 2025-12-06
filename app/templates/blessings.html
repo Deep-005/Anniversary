@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}HH - GuestBook{% endblock %}
+{% block title %}HH - Guest Book{% endblock %}
 
 {% block extra_css %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="{% static 'css/blessings.css' %}">
 {% endblock %}
 
@@ -15,9 +19,15 @@
     </div>
 
     <section class="guest-book">
+        <!-- Mobile swipe instruction -->
+        <div class="mobile-swipe-hint">
+            <i class="fas fa-hand-point-up"></i>
+            <span>Swipe to turn pages</span>
+        </div>
+
         <div class="book-container">
-            <!-- Previous Button -->
-            <button id="prev-btn" class="page-turner">
+            <!-- Previous Button (Desktop) -->
+            <button id="prev-btn" class="page-turner desktop-btn">
                 <i class="fas fa-arrow-circle-left"></i>
             </button>
 
@@ -39,28 +49,23 @@
                                     <i class="fas fa-glass-cheers"></i> Happy Anniversary!
                                 </div>
                             </div>
-                            <div class="page-counter">Page 1 of {{ messages|length|add:2 }}</div>
+                            <div class="page-counter">Page 1 of 5</div>
                         </div>
                     </div>
                     <div class="back">
                         <div id="b1" class="back-content">
                             <div class="message-container">
                                 <div class="messages-wrapper">
-                                    {% for message in messages|slice:":2" %}
-                                    <div class="family-message {{ message.relation }}-message">
+                                    <div class="family-message mom-message">
                                         <div class="message-author">
-                                            <i class="fas fa-{% if message.relation == 'mom' or message.relation == 'mother_in_law' or message.relation == 'daughter' %}female{% else %}male{% endif %}"></i>
-                                            {{ message.get_relation_display }}
+                                            <i class="fas fa-female"></i>
+                                            Mother
                                         </div>
-                                        {% if message.sub_relation != 'none' %}
-                                        <div class="message-relation">{{ message.get_sub_relation_display }}</div>
-                                        {% endif %}
-                                        <div class="message-content">{{ message.message }}</div>
+                                        <div class="message-content">My dearest children, seeing your love blossom over these 5 years has been my greatest joy. Your partnership is built on respect, laughter, and unwavering support. May your bond continue to grow stronger with each passing season. All my love always.</div>
                                     </div>
-                                    {% endfor %}
                                 </div>
                             </div>
-                            <div class="page-counter">Page 2 of {{ messages|length|add:2 }}</div>
+                            <div class="page-counter">Page 2 of 5</div>
                         </div>
                     </div>
                 </div>
@@ -71,163 +76,56 @@
                         <div id="f2" class="front-content">
                             <div class="message-container">
                                 <div class="messages-wrapper">
-                                    {% for message in messages|slice:"2:4" %}
-                                    <div class="family-message {{ message.relation }}-message">
+                                    <div class="family-message father-message">
                                         <div class="message-author">
-                                            <i class="fas fa-{% if message.relation == 'mom' or message.relation == 'mother_in_law' or message.relation == 'daughter' %}female{% else %}male{% endif %}"></i>
-                                            {{ message.get_relation_display }}
+                                            <i class="fas fa-male"></i>
+                                            Father
                                         </div>
-                                        {% if message.sub_relation != 'none' %}
-                                        <div class="message-relation">{{ message.get_sub_relation_display }}</div>
-                                        {% endif %}
-                                        <div class="message-content">{{ message.message }}</div>
+                                        <div class="message-content">To the wonderful couple, your journey together reflects true commitment and happiness. The way you support each other's dreams is inspiring. Wishing you endless adventures and a lifetime of shared smiles. So proud of you both.</div>
                                     </div>
-                                    {% endfor %}
                                 </div>
                             </div>
-                            <div class="page-counter">Page 3 of {{ messages|length|add:2 }}</div>
+                            <div class="page-counter">Page 3 of 5</div>
                         </div>
                     </div>
                     <div class="back">
                         <div id="b2" class="back-content">
                             <div class="message-container">
                                 <div class="messages-wrapper">
-                                    {% for message in messages|slice:"4:6" %}
-                                    <div class="family-message {{ message.relation }}-message">
+                                    <div class="family-message son-message">
                                         <div class="message-author">
-                                            <i class="fas fa-{% if message.relation == 'mom' or message.relation == 'mother_in_law' or message.relation == 'daughter' %}female{% else %}male{% endif %}"></i>
-                                            {{ message.get_relation_display }}
+                                            <i class="fas fa-male"></i>
+                                            Son
                                         </div>
-                                        {% if message.sub_relation != 'none' %}
-                                        <div class="message-relation">{{ message.get_sub_relation_display }}</div>
-                                        {% endif %}
-                                        <div class="message-content">{{ message.message }}</div>
+                                        <div class="message-content">Mom & Dad, your love is my favorite example. Thank you for showing me what a happy, caring home looks like. Happy 5th Anniversary! Can't wait for all our future family adventures. Love you both so much!</div>
                                     </div>
-                                    {% endfor %}
                                 </div>
                             </div>
-                            <div class="page-counter">Page 4 of {{ messages|length|add:2 }}</div>
+                            <div class="page-counter">Page 4 of 5</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Paper 3 -->
+                <!-- Paper 3 - Closing -->
                 <div id="p3" class="paper">
                     <div class="front">
                         <div id="f3" class="front-content">
                             <div class="message-container">
                                 <div class="messages-wrapper">
-                                    {% for message in messages|slice:"6:8" %}
-                                    <div class="family-message {{ message.relation }}-message">
+                                    <div class="family-message friends-message">
                                         <div class="message-author">
-                                            <i class="fas fa-{% if message.relation == 'mom' or message.relation == 'mother_in_law' or message.relation == 'daughter' %}female{% else %}male{% endif %}"></i>
-                                            {{ message.get_relation_display }}
+                                            <i class="fas fa-user-friends"></i>
+                                            Friends
                                         </div>
-                                        {% if message.sub_relation != 'none' %}
-                                        <div class="message-relation">{{ message.get_sub_relation_display }}</div>
-                                        {% endif %}
-                                        <div class="message-content">{{ message.message }}</div>
+                                        <div class="message-content">Happy Anniversary to our favorite couple! Your love story is one for the books. From all of us, here's to many more years of laughter, great times, and the incredible friendship we all share. Cheers to you both!</div>
                                     </div>
-                                    {% endfor %}
                                 </div>
                             </div>
-                            <div class="page-counter">Page 5 of {{ messages|length|add:2 }}</div>
+                            <div class="page-counter">Page 5 of 5</div>
                         </div>
                     </div>
                     <div class="back">
-                        <div id="b3" class="back-content">
-                            <div class="message-container">
-                                <div class="messages-wrapper">
-                                    {% for message in messages|slice:"8:10" %}
-                                    <div class="family-message {{ message.relation }}-message">
-                                        <div class="message-author">
-                                            <i class="fas fa-{% if message.relation == 'mom' or message.relation == 'mother_in_law' or message.relation == 'daughter' %}female{% else %}male{% endif %}"></i>
-                                            {{ message.get_relation_display }}
-                                        </div>
-                                        {% if message.sub_relation != 'none' %}
-                                        <div class="message-relation">{{ message.get_sub_relation_display }}</div>
-                                        {% endif %}
-                                        <div class="message-content">{{ message.message }}</div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                            <div class="page-counter">Page 6 of {{ messages|length|add:2 }}</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Paper 4 -->
-                <div id="p4" class="paper">
-                    <div class="front">
-                        <div id="f4" class="front-content">
-                            <div class="message-container">
-                                <div class="messages-wrapper">
-                                    {% for message in messages|slice:"10:12" %}
-                                    <div class="family-message {{ message.relation }}-message">
-                                        <div class="message-author">
-                                            <i class="fas fa-{% if message.relation == 'mom' or message.relation == 'mother_in_law' or message.relation == 'daughter' %}female{% else %}male{% endif %}"></i>
-                                            {{ message.get_relation_display }}
-                                        </div>
-                                        {% if message.sub_relation != 'none' %}
-                                        <div class="message-relation">{{ message.get_sub_relation_display }}</div>
-                                        {% endif %}
-                                        <div class="message-content">{{ message.message }}</div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                            <div class="page-counter">Page 7 of {{ messages|length|add:2 }}</div>
-                        </div>
-                    </div>
-                    <div class="back">
-                        <div id="b4" class="back-content">
-                            <div class="message-container">
-                                <div class="messages-wrapper">
-                                    {% for message in messages|slice:"12:14" %}
-                                    <div class="family-message {{ message.relation }}-message">
-                                        <div class="message-author">
-                                            <i class="fas fa-{% if message.relation == 'mom' or message.relation == 'mother_in_law' or message.relation == 'daughter' %}female{% else %}male{% endif %}"></i>
-                                            {{ message.get_relation_display }}
-                                        </div>
-                                        {% if message.sub_relation != 'none' %}
-                                        <div class="message-relation">{{ message.get_sub_relation_display }}</div>
-                                        {% endif %}
-                                        <div class="message-content">{{ message.message }}</div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                            <div class="page-counter">Page 8 of {{ messages|length|add:2 }}</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Paper 5 - Closing -->
-                <div id="p5" class="paper">
-                    <div class="front">
-                        <div id="f5" class="front-content">
-                            <div class="message-container">
-                                <div class="messages-wrapper">
-                                    {% for message in messages|slice:"14:16" %}
-                                    <div class="family-message {{ message.relation }}-message">
-                                        <div class="message-author">
-                                            <i class="fas fa-{% if message.relation == 'mom' or message.relation == 'mother_in_law' or message.relation == 'daughter' %}female{% else %}male{% endif %}"></i>
-                                            {{ message.get_relation_display }}
-                                        </div>
-                                        {% if message.sub_relation != 'none' %}
-                                        <div class="message-relation">{{ message.get_sub_relation_display }}</div>
-                                        {% endif %}
-                                        <div class="message-content">{{ message.message }}</div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                            <div class="page-counter">Page {{ messages|length|add:1 }} of {{ messages|length|add:2 }}</div>
-                        </div>
-                    </div>
-                    <div class="back">
-                        <div id="b5" class="back-content cover-page">
+                        <div id="b3" class="back-content cover-page">
                             <div class="cover-title">Always & Forever</div>
                             <div class="cover-subtitle">Your Love Story Continues...</div>
                             <div class="cover-image">
@@ -245,14 +143,14 @@
                                 With all our love,<br>
                                 Your Family & Friends
                             </div>
-                            <div class="page-counter">Page {{ messages|length|add:2 }} of {{ messages|length|add:2 }}</div>
+                            <div class="page-counter">Page 5 of 5</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Next Button -->
-            <button id="next-btn" class="page-turner">
+            <!-- Next Button (Desktop) -->
+            <button id="next-btn" class="page-turner desktop-btn">
                 <i class="fas fa-arrow-circle-right"></i>
             </button>
         </div>

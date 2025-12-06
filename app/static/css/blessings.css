@@ -1,4 +1,15 @@
 /* GuestBook Specific Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Merriweather', serif;
+    overflow-x: hidden;
+}
+
 main {
     padding-top: 90px;
     min-height: calc(100vh - 90px);
@@ -14,22 +25,25 @@ main {
 .page-title {
     text-align: center;
     margin-bottom: 30px;
+    padding: 0 20px;
     color: #333;
 }
 
 .page-title h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
     color: #e64230;
-    font-family: 'Georgia', serif;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 
 .page-title p {
-    font-size: 1.1rem;
-    color: #666;
+    font-size: 1.2rem;
+    color: #777;
     max-width: 600px;
     margin: 0 auto;
     font-style: italic;
+    line-height: 1.6;
 }
 
 .guest-book {
@@ -50,15 +64,17 @@ main {
     justify-content: center;
     width: 100%;
     position: relative;
+    min-height: 700px;
 }
 
 /* Book */
 .book {
     position: relative;
-    width: 450px;
-    height: 600px;
-    transition: transform 0.5s;
+    width: 480px;
+    height: 650px;
+    transition: transform 0.5s ease;
     z-index: 1;
+    cursor: pointer;
 }
 
 .paper {
@@ -68,32 +84,36 @@ main {
     top: 0;
     left: 0;
     perspective: 1500px;
+    pointer-events: none;
 }
 
 .front,
 .back {
-    background-color: #fffef7;
+    background-color: #fffefc;
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     transform-origin: left;
-    transition: transform 0.5s;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 0 10px 10px 0;
+    transition: transform 0.8s cubic-bezier(0.42, 0, 0.58, 1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 0 12px 12px 0;
     overflow: hidden;
+    border: 1px solid rgba(230, 66, 48, 0.1);
 }
 
 .front {
     z-index: 1;
     backface-visibility: hidden;
-    border-left: 8px solid #e64230;
+    border-left: 10px solid #e64230;
+    background: linear-gradient(to bottom right, #fffefc, #fffaf5);
 }
 
 .back {
     z-index: 0;
-    border-left: 8px solid #e64230;
+    border-left: 10px solid #e64230;
+    background: linear-gradient(to bottom right, #fffaf5, #fffefc);
 }
 
 .front-content,
@@ -102,10 +122,12 @@ main {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding: 30px 25px;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 40px;
     text-align: center;
     overflow: hidden;
+    pointer-events: auto;
 }
 
 .back-content {
@@ -123,191 +145,384 @@ main {
     border: none;
     background-color: transparent;
     cursor: pointer;
-    margin: 30px;
-    transition: transform 0.5s;
+    margin: 40px;
+    transition: all 0.3s ease;
     z-index: 10;
+    padding: 10px;
+    border-radius: 50%;
+    position: relative;
 }
 
 .page-turner:focus {
     outline: none;
 }
 
-.page-turner:hover i {
-    color: #e64230;
+.page-turner:hover {
+    background-color: rgba(230, 66, 48, 0.1);
     transform: scale(1.1);
 }
 
 .page-turner i {
-    font-size: 50px;
+    font-size: 60px;
     color: #e64230;
     transition: all 0.3s ease;
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2));
+}
+
+/* Button states */
+.page-turner.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0.8);
+}
+
+.page-turner.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* Mobile swipe hint */
+.mobile-swipe-hint {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background: rgba(230, 66, 48, 0.1);
+    border-radius: 25px;
+    color: #e64230;
+    font-weight: 500;
+    animation: pulse 2s infinite;
+}
+
+.mobile-swipe-hint i {
+    font-size: 1.5rem;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
 }
 
 /* Paper stack order */
-#p1 { z-index: 6; }
-#p2 { z-index: 5; }
-#p3 { z-index: 4; }
-#p4 { z-index: 3; }
-#p5 { z-index: 2; }
-#p6 { z-index: 1; }
+#p1 { z-index: 3; }
+#p2 { z-index: 2; }
+#p3 { z-index: 1; }
 
 /* Message Styling */
 .message-container {
     width: 100%;
-    text-align: left;
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
 }
 
 .messages-wrapper {
-    flex: 1;
+    width: 100%;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
 .family-message {
     background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    border-left: 4px solid #e64230;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    flex-shrink: 0;
+    padding: 40px 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    border: 2px solid rgba(230, 66, 48, 0.15);
+    background: linear-gradient(145deg, #ffffff, #fffafa);
+    text-align: center;
+}
+
+.family-message::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    font-size: 4rem;
+    color: rgba(230, 66, 48, 0.15);
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.family-message::after {
+    content: '"';
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+    font-size: 4rem;
+    color: rgba(230, 66, 48, 0.15);
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    line-height: 1;
+    transform: rotate(180deg);
 }
 
 .message-author {
     font-weight: bold;
     color: #e64230;
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 12px;
+    font-family: 'Playfair Display', serif;
 }
 
-.message-relation {
-    font-size: 0.8rem;
-    color: #888;
-    font-style: italic;
-    margin-bottom: 8px;
+.message-author i {
+    font-size: 1.8rem;
 }
 
 .message-content {
-    line-height: 1.5;
-    color: #555;
-    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #444;
+    font-size: 1.1rem;
+    text-align: justify;
+    hyphens: auto;
+    margin: 20px 0;
+    padding: 0 10px;
+    font-family: 'Merriweather', serif;
 }
 
-/* Relation-specific styles */
-.mom-message { border-left-color: #e74c3c; }
-.dad-message { border-left-color: #3498db; }
-.mother-in-law-message { border-left-color: #9b59b6; }
-.father-in-law-message { border-left-color: #2ecc71; }
-.son-message { border-left-color: #f39c12; }
-.daughter-message { border-left-color: #e91e63; }
-.friend-message { border-left-color: #34495e; }
+/* Relation-specific accent colors */
+.mom-message { border-color: rgba(231, 76, 60, 0.3); }
+.father-message { border-color: rgba(52, 152, 219, 0.3); }
+.son-message { border-color: rgba(243, 156, 18, 0.3); }
+.friends-message { border-color: rgba(52, 73, 94, 0.3); }
 
 /* Cover Page */
 .cover-page {
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 40px;
     justify-content: center !important;
+    background: linear-gradient(135deg, #fffaf0 0%, #ffeaea 100%);
 }
 
 .cover-title {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     color: #e64230;
-    margin-bottom: 15px;
-    font-family: 'Georgia', serif;
-}
-
-.cover-subtitle {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 25px;
-    font-style: italic;
-}
-
-.cover-image {
-    font-size: 3.5rem;
-    color: #e64230;
-    margin: 20px 0;
-}
-
-.years-together {
-    font-size: 4rem;
-    color: #e64230;
-    font-weight: bold;
-    margin: 15px 0;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
+.cover-subtitle {
+    font-size: 1.3rem;
+    color: #777;
+    margin-bottom: 35px;
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+.cover-image {
+    font-size: 4.5rem;
+    color: #e64230;
+    margin: 30px 0;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.15));
+}
+
+.years-together {
+    font-size: 5rem;
+    color: #e64230;
+    font-weight: bold;
+    margin: 20px 0;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.15);
+    font-family: 'Playfair Display', serif;
+}
+
 .anniversary-badge {
-    background: linear-gradient(135deg, #e64230, #e2230d);
+    background: linear-gradient(135deg, #e64230, #d81b1b);
     color: white;
-    padding: 6px 12px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    margin: 8px 0;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    margin: 15px 0;
     display: inline-block;
+    box-shadow: 0 4px 15px rgba(230, 66, 48, 0.3);
+    font-weight: 600;
 }
 
 .page-counter {
     position: absolute;
-    bottom: 15px;
-    right: 20px;
+    bottom: 20px;
+    right: 30px;
     color: #888;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-style: italic;
+    background: rgba(255,255,255,0.8);
+    padding: 5px 10px;
+    border-radius: 10px;
 }
 
 /* Mobile Responsive */
+@media screen and (max-width: 1024px) {
+    .book {
+        width: 420px;
+        height: 600px;
+    }
+    
+    .page-turner {
+        margin: 30px;
+    }
+    
+    .page-turner i {
+        font-size: 50px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     main {
-        padding-top: 100px;
+        padding-top: 80px;
+        padding-bottom: 40px;
+        justify-content: flex-start;
     }
 
-    .book {
-        width: 380px;
-        height: 520px;
-    }
-
-    .page-turner {
-        margin: 15px;
-    }
-
-    .page-turner i {
-        font-size: 40px;
+    .page-title {
+        margin-bottom: 20px;
     }
 
     .page-title h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+
+    .page-title p {
+        font-size: 1.1rem;
+        padding: 0 15px;
+    }
+
+    .guest-book {
+        padding: 10px;
+    }
+
+    .book {
+        width: 100%;
+        max-width: 400px;
+        height: 550px;
+    }
+
+    /* Hide desktop buttons on mobile */
+    .desktop-btn {
+        display: none !important;
+    }
+
+    /* Show mobile swipe hint */
+    .mobile-swipe-hint {
+        display: flex;
+    }
+
+    .front-content,
+    .back-content {
+        padding: 40px 30px;
+    }
+
+    .family-message {
+        padding: 30px 25px;
+    }
+
+    .message-content {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .message-author {
+        font-size: 1.2rem;
     }
 
     .cover-title {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
+    }
+
+    .cover-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .years-together {
+        font-size: 4rem;
+    }
+
+    .cover-image {
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .book {
+        height: 500px;
+        max-width: 350px;
+    }
+
+    .front-content,
+    .back-content {
+        padding: 30px 20px;
+    }
+
+    .family-message {
+        padding: 25px 20px;
+    }
+
+    .message-author {
+        font-size: 1.1rem;
+    }
+
+    .message-content {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .cover-title {
+        font-size: 1.9rem;
+    }
+
+    .years-together {
+        font-size: 3.5rem;
+    }
+
+    .page-counter {
+        font-size: 0.8rem;
+        bottom: 15px;
+        right: 20px;
+    }
+
+    .mobile-swipe-hint {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .book {
+        height: 450px;
+        max-width: 320px;
+    }
+
+    .family-message {
+        padding: 20px 15px;
+    }
+
+    .cover-title {
+        font-size: 1.7rem;
     }
 
     .years-together {
         font-size: 3rem;
     }
 
-    .front-content,
-    .back-content {
-        padding: 25px 20px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .book {
-        width: 340px;
-        height: 480px;
-    }
-
-    .front-content,
-    .back-content {
-        padding: 20px 15px;
+    .page-title h1 {
+        font-size: 1.9rem;
     }
 }
