@@ -1,0 +1,357 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}HH - Gallery{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+{% endblock %}
+
+{% block main %}
+<main style="height: auto;">
+
+    <section class="main-container" style="min-height: fit-content;">
+        
+        <!-- Hero Section -->
+        <div class="gallery-hero">
+            <div class="hero-content">
+                <h1 style="color: white;">Our Gallery</h1>
+                <p>A visual journey through our Precious Memories</p>
+            </div>
+        </div>
+
+        <!-- Photos Grid Section -->
+        <div class="memories-grid-section">
+            <div class="container">
+                <h2 class="section-title">Our Beautiful Memories</h2>
+                <p class="section-subtitle">Cherishing every moment of our journey together</p>
+                
+                <div class="memories-grid">
+                    <div class="memory-item large">
+                        <img src="{% static 'gallery/img19.jpg' %}" alt="Our Wedding Day">
+                        <div class="memory-overlay">
+                            <div class="memory-info">
+                                <h4>Our Wedding Day</h4>
+                                <p>The Beginning of Forever</p>
+                                <span class="memory-date">June 18, 2018</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="memory-item">
+                        <img src="{% static 'gallery/img14.jpg' %}" alt="First Anniversary">
+                        <div class="memory-overlay">
+                            <div class="memory-info">
+                                <h4>First Anniversary</h4>
+                                <p>One Year of Love</p>
+                                <span class="memory-date">June 18, 2019</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="memory-item">
+                        <img src="{% static 'gallery/img21.jpg' %}" alt="Travel Adventures">
+                        <div class="memory-overlay">
+                            <div class="memory-info">
+                                <h4>Paris Getaway</h4>
+                                <p>City of Love</p>
+                                <span class="memory-date">March 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="memory-item">
+                        <img src="{% static 'gallery/img11.jpg' %}" alt="Special Moments">
+                        <div class="memory-overlay">
+                            <div class="memory-info">
+                                <h4>Beach Sunset</h4>
+                                <p>Perfect Moments</p>
+                                <span class="memory-date">August 2021</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="memory-item">
+                        <img src="{% static 'gallery/img17.jpg' %}" alt="Anniversary Celebration">
+                        <div class="memory-overlay">
+                            <div class="memory-info">
+                                <h4>5th Anniversary</h4>
+                                <p>Growing Stronger</p>
+                                <span class="memory-date">June 18, 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Section -->
+        <div class="love-story-carousel-section">
+            <div class="container">
+                <h2 class="carousal-section-title">Our Love Story</h2>
+                <p class="carousal-section-subtitle">Relive the beautiful moments that made our journey special</p>
+                
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide active">
+                            <img src="{% static 'gallery/img12.jpg' %}" alt="First Meeting">
+                            <div class="carousel-content">
+                                <h3>First Meeting</h3>
+                                <p>That magical coffee shop encounter where our eyes met and hearts connected forever</p>
+                                <span class="memory-date">October 15, 2013</span>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <img src="{% static 'gallery/img22.jpg' %}" alt="The Proposal">
+                            <div class="carousel-content">
+                                <h3>The Proposal</h3>
+                                <p>Sunset on the beach when you got down on one knee and changed our lives forever</p>
+                                <span class="memory-date">December 24, 2017</span>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <img src="{% static 'gallery/img16.jpg' %}" alt="Wedding Day">
+                            <div class="carousel-content">
+                                <h3>Our Wedding Day</h3>
+                                <p>The beautiful ceremony where we promised forever surrounded by loved ones</p>
+                                <span class="memory-date">June 18, 2018</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="{% static 'gallery/img15.jpg' %}" alt="Honeymoon">
+                            <div class="carousel-content">
+                                <h3>Paris Honeymoon</h3>
+                                <p>Exploring the city of love, creating memories that would last a lifetime together</p>
+                                <span class="memory-date">July 2018</span>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <img src="{% static 'gallery/img3.jpg' %}" alt="Anniversary">
+                            <div class="carousel-content">
+                                <h3>5th Anniversary</h3>
+                                <p>Celebrating half a decade of love, laughter, and growing stronger together</p>
+                                <span class="memory-date">June 18, 2023</span>
+                            </div>
+                        </div>                           
+                    </div>
+                    
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev" id="prevBtn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn next" id="nextBtn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="carousel-indicators">
+                        <span class="indicator active" data-slide="0"></span>
+                        <span class="indicator" data-slide="1"></span>
+                        <span class="indicator" data-slide="2"></span>
+                        <span class="indicator" data-slide="3"></span>
+                        <span class="indicator" data-slide="4"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Gallery Section -->
+        <div class="special-moments-section">
+            <div class="container">
+                <h2 class="section-title">More Beautiful Moments</h2>
+                <p class="section-subtitle">Cherishing the little things that made our love story special</p>
+                
+                <div class="moments-grid">
+                    <div class="moment-item">
+                        <img src="{% static 'gallery/img18.jpg' %}" alt="Sunset Walks">
+                        <div class="moment-overlay">
+                            <h4>Sunset Walks</h4>
+                            <p>Hand in hand, watching the day fade away</p>
+                            <span class="heart-icon">💕</span>
+                        </div>
+                    </div>
+                    
+                    <div class="moment-item">
+                        <img src="{% static 'gallery/img24.jpg' %}" alt="Cooking Together">
+                        <div class="moment-overlay">
+                            <h4>Cooking Together</h4>
+                            <p>Creating memories in the kitchen</p>
+                            <span class="heart-icon">💕</span>
+                        </div>
+                    </div>
+                    
+                    <div class="moment-item">
+                        <img src="{% static 'gallery/img25.jpg' %}" alt="Movie Nights">
+                        <div class="moment-overlay">
+                            <h4>Movie Nights</h4>
+                            <p>Cozy evenings and shared laughter</p>
+                            <span class="heart-icon">💕</span>
+                        </div>
+                    </div>
+                    
+                    <div class="moment-item">
+                        <img src="{% static 'gallery/img7.jpg' %}" alt="Holiday Celebrations">
+                        <div class="moment-overlay">
+                            <h4>Holiday Celebrations</h4>
+                            <p>Making every season magical together</p>
+                            <span class="heart-icon">💕</span>
+                        </div>
+                    </div>
+                    
+                    <div class="moment-item">
+                        <img src="{% static 'gallery/img20.jpg' %}" alt="Weekend Getaways">
+                        <div class="moment-overlay">
+                            <h4>Weekend Getaways</h4>
+                            <p>Spontaneous adventures and cozy retreats</p>
+                            <span class="heart-icon">💕</span>
+                        </div>
+                    </div>
+                    
+                    <div class="moment-item">
+                        <img src="{% static 'gallery/img17.jpg' %}" alt="Everyday Moments">
+                        <div class="moment-overlay">
+                            <h4>Everyday Moments</h4>
+                            <p>The simple joys of being together</p>
+                            <span class="heart-icon">💕</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Highlights Section -->
+        <div class="anniversary-gallery">
+            
+            <div class="g-i-header">
+                <div class="header-content">
+                    <h1 class="section-title">Our Love Story</h1>
+                    <p class="header-subtitle">A Journey of Beautiful Moments Together</p>
+                </div>
+            </div>
+
+            <div class="gallery-container">
+                <!-- Video 1 - First Meeting -->
+                <div class="gallery-item">
+                    <video class="gallery-media" autoplay muted loop playsinline>
+                        <source src="{% static 'videos/v7.mp4' %}" type="video/mp4">
+                    </video>
+                    <div class="caption-overlay">
+                        <p>The moment our eyes first met. That magical instant when two hearts recognized each other 
+                            and a beautiful journey began.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image 1 - First Date -->
+                <div class="gallery-item">
+                    <img src="{% static 'gallery/img15.jpg' %}" alt="Our First Date">
+                    <div class="caption-overlay">
+                        <p>Our first date - nervous smiles, endless conversations, and the beginning of something 
+                            truly special that would last a lifetime.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image 2 - Proposal -->
+                <div class="gallery-item">
+                    <img src="{% static 'gallery/img22.jpg' %}" alt="The Proposal">
+                    <div class="caption-overlay">
+                        <p>The sunset proposal that changed everything. That perfect moment when you asked 
+                            the most important question of our lives.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image 3 - Wedding Ceremony -->
+                <div class="gallery-item">
+                    <img src="{% static 'gallery/img8.jpg' %}" alt="Wedding Day">
+                    <div class="caption-overlay">
+                        <p>Our wedding day - surrounded by love, making promises that would guide us through 
+                            all of life's adventures together.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image 4 - Honeymoon -->
+                <div class="gallery-item">
+                    <img src="{% static 'gallery/img12.jpg' %}" alt="Honeymoon">
+                    <div class="caption-overlay">
+                        <p>Our first adventure as husband and wife. Exploring new places and creating memories 
+                            that would last forever.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Video 2 - Anniversary Celebration -->
+                <div class="gallery-item">
+                    <video class="gallery-media" autoplay muted loop playsinline>
+                        <source src="{% static 'videos/v10.mp4' %}" type="video/mp4">
+                    </video>
+                    <div class="caption-overlay">
+                        <p>Celebrating another year of love and laughter. Each anniversary reminds us how 
+                            beautiful our journey has been and how much more lies ahead.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image 5 - Travel Adventures -->
+                <div class="gallery-item">
+                    <img src="{% static 'gallery/img10.jpg' %}" alt="Travel Adventures">
+                    <div class="caption-overlay">
+                        <p>Exploring the world hand in hand. From mountain peaks to city streets, every 
+                            adventure made our bond stronger.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image 6 - Everyday Moments -->
+                <div class="gallery-item">
+                    <img src="{% static 'gallery/img5.jpg' %}" alt="Everyday Happiness">
+                    <div class="caption-overlay">
+                        <p>The simple moments that mean the most. Morning coffee, shared laughter, and the 
+                            comfort of being truly known and loved.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image 7 - Family Moments -->
+                <div class="gallery-item">
+                    <img src="{% static 'gallery/img23.jpg' %}" alt="Family Love">
+                    <div class="caption-overlay">
+                        <p>Building our life together, creating a home filled with love, laughter, and 
+                            beautiful memories in the making.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image 8 - Growing Together -->
+                <div class="gallery-item">
+                    <img src="{% static 'gallery/img13.jpg' %}" alt="Growing Together">
+                    <div class="caption-overlay">
+                        <p>Through every season of life, we've grown together - supporting each other's dreams 
+                            and celebrating every milestone.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-end">
+                <div class="gallery-end-content">
+                    <p>Our love story continues... Here's to forever and all the beautiful chapters yet to be written.</p>
+                    <div class="heart-float">💕</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/gallery.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}HH - Our Story{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/story.css' %}">
+{% endblock %}
+
+{% block main %}
+<main style="height: auto;">
+
+ <!-- Hero Section -->
+    <section class="story-hero">
+        <div class="hero-content">
+            <h1>Our Beautiful Journey</h1>
+            <p>From the first hello to forever together - this is our love story</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down" style="font-size: 2rem;"></i>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="timeline">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">October 15, 2013</div>
+                    <h2 class="timeline-title">The First Hello</h2>
+                    <div class="timeline-image">
+                        <img src="{% static 'images/img26.jpg' %}" alt="Our First Meeting">
+                    </div>
+                    <p class="timeline-text">
+                        It all started in that cozy coffee shop downtown. I remember your smile, 
+                        the way your eyes lit up when we talked, and how three hours felt like three minutes. 
+                        Little did we know, that casual meeting would be the beginning of our forever.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">June 18, 2014</div>
+                    <h2 class="timeline-title">First Anniversary</h2>
+                    <div class="timeline-image">
+                        <img src="{% static 'images/img23.jpg' %}" alt="First Anniversary">
+                    </div>
+                    <p class="timeline-text">
+                        365 days of laughter, shared dreams, and growing together. We celebrated 
+                        with a picnic in the park, watching the sunset and making promises for 
+                        all the anniversaries to come.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">December 24, 2017</div>
+                    <h2 class="timeline-title">The Proposal</h2>
+                    <div class="timeline-image">
+                        <img src="{% static 'images/img27.jpg' %}" alt="The Proposal">
+                    </div>
+                    <p class="timeline-text">
+                        On a snowy Christmas Eve, under the starlit sky, you got down on one knee. 
+                        The world stood still as you asked the most important question of our lives. 
+                        My "yes" was the easiest decision I've ever made.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 4 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">June 18, 2018</div>
+                    <h2 class="timeline-title">Our Wedding Day</h2>
+                    <div class="timeline-image">
+                        <img src="{% static 'images/img21.jpg' %}" alt="Wedding Day">
+                    </div>
+                    <p class="timeline-text">
+                        Surrounded by loved ones, we promised forever. The most beautiful day of our lives, 
+                        filled with joy, tears of happiness, and the beginning of our greatest adventure 
+                        as husband and wife.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 5 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Present Day</div>
+                    <h2 class="timeline-title">Our Growing Love</h2>
+                    <div class="timeline-image">
+                        <img src="{% static 'images/img25.jpg' %}" alt="Current Moment">
+                    </div>
+                    <p class="timeline-text">
+                        Through every challenge and celebration, our love has only grown stronger. 
+                        We've built a life together filled with beautiful memories, shared dreams, 
+                        and the unwavering knowledge that we're exactly where we're meant to be.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Quote Section -->
+    <section class="love-quote-section">
+        <div class="love-quote">
+            "In you, I've found the love of my life and my closest, truest friend. Every moment with you feels like coming home."
+            <div class="quote-author">- Our Promise to Each Other</div>
+        </div>
+    </section>
+
+    <!-- Memories Grid Section -->
+    <section class="memories-grid">
+        <h2 class="section-title">Cherished Moments</h2>
+        <div class="memories-container">
+            
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="{% static 'images/img10.jpg' %}" alt="Travel Memory">
+                </div>
+                <div class="memory-content">
+                    <h3>Greece Adventures</h3>
+                    <p>Getting lost in the fields of Greece and finding our way back together, creating memories in the nature.</p>
+                </div>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="{% static 'images/img18.jpg' %}" alt="Home Memory">
+                </div>
+                <div class="memory-content">
+                    <h3>Our First Home</h3>
+                    <p>Building our nest together, filled with love, laughter, and the promise of many beautiful years to come.</p>
+                </div>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="{% static 'images/img22.jpg' %}" alt="Special Occasion">
+                </div>
+                <div class="memory-content">
+                    <h3>Celebrations</h3>
+                    <p>Every birthday, holiday, and ordinary day made extraordinary because we celebrate them together.</p>
+                </div>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="{% static 'images/img28.jpg' %}" alt="Our First Child">
+                </div>
+                <div class="memory-content">
+                    <h3>Our Little Miracle</h3>
+                    <p>The day our world became brighter with the arrival of our precious child, completing our family in the most beautiful way.</p>
+                </div>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="{% static 'images/img29.jpg' %}" alt="First Car Together">
+                </div>
+                <div class="memory-content">
+                    <h3>Our First Journey Mobile</h3>
+                    <p>Purchasing our first car together, ready for all the road trips and adventures that await our growing family.</p>
+                </div>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="{% static 'images/img30.jpg' %}" alt="Family Celebration">
+                </div>
+                <div class="memory-content">
+                    <h3>Family Love Circle</h3>
+                    <p>Cherished moments surrounded by loved ones, where laughter echoes and bonds grow stronger with each gathering.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Forever Section -->
+    <section class="forever-section">
+        <div class="forever-content">
+            <h2>And This is Just the Beginning</h2>
+            <p>
+                Our story continues to unfold with each passing day. Through all of life's adventures, 
+                challenges, and joys, one thing remains constant - our love for each other grows stronger. 
+                Here's to forever and all the beautiful chapters yet to be written.
+            </p>
+            <div class="heart-animation">💕</div>
+        </div>
+    </section>
+
+
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/story.js' %}"></script>
+{% endblock %}

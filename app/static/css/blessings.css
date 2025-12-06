@@ -1,0 +1,313 @@
+/* GuestBook Specific Styles */
+main {
+    padding-top: 90px;
+    min-height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, #fffaf0 0%, #fff5f5 100%);
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.page-title h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #e64230;
+    font-family: 'Georgia', serif;
+}
+
+.page-title p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    font-style: italic;
+}
+
+.guest-book {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.book-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Book */
+.book {
+    position: relative;
+    width: 450px;
+    height: 600px;
+    transition: transform 0.5s;
+    z-index: 1;
+}
+
+.paper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    perspective: 1500px;
+}
+
+.front,
+.back {
+    background-color: #fffef7;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.5s;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 0 10px 10px 0;
+    overflow: hidden;
+}
+
+.front {
+    z-index: 1;
+    backface-visibility: hidden;
+    border-left: 8px solid #e64230;
+}
+
+.back {
+    z-index: 0;
+    border-left: 8px solid #e64230;
+}
+
+.front-content,
+.back-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px 25px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.back-content {
+    transform: rotateY(180deg);
+}
+
+/* Paper flip effect */
+.flipped .front,
+.flipped .back {
+    transform: rotateY(-180deg);
+}
+
+/* Controller Buttons */
+.page-turner {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 30px;
+    transition: transform 0.5s;
+    z-index: 10;
+}
+
+.page-turner:focus {
+    outline: none;
+}
+
+.page-turner:hover i {
+    color: #e64230;
+    transform: scale(1.1);
+}
+
+.page-turner i {
+    font-size: 50px;
+    color: #e64230;
+    transition: all 0.3s ease;
+}
+
+/* Paper stack order */
+#p1 { z-index: 6; }
+#p2 { z-index: 5; }
+#p3 { z-index: 4; }
+#p4 { z-index: 3; }
+#p5 { z-index: 2; }
+#p6 { z-index: 1; }
+
+/* Message Styling */
+.message-container {
+    width: 100%;
+    text-align: left;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.messages-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow: hidden;
+}
+
+.family-message {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #e64230;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    flex-shrink: 0;
+}
+
+.message-author {
+    font-weight: bold;
+    color: #e64230;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.message-relation {
+    font-size: 0.8rem;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.message-content {
+    line-height: 1.5;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Relation-specific styles */
+.mom-message { border-left-color: #e74c3c; }
+.dad-message { border-left-color: #3498db; }
+.mother-in-law-message { border-left-color: #9b59b6; }
+.father-in-law-message { border-left-color: #2ecc71; }
+.son-message { border-left-color: #f39c12; }
+.daughter-message { border-left-color: #e91e63; }
+.friend-message { border-left-color: #34495e; }
+
+/* Cover Page */
+.cover-page {
+    text-align: center;
+    padding: 40px 20px;
+    justify-content: center !important;
+}
+
+.cover-title {
+    font-size: 2.2rem;
+    color: #e64230;
+    margin-bottom: 15px;
+    font-family: 'Georgia', serif;
+}
+
+.cover-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.cover-image {
+    font-size: 3.5rem;
+    color: #e64230;
+    margin: 20px 0;
+}
+
+.years-together {
+    font-size: 4rem;
+    color: #e64230;
+    font-weight: bold;
+    margin: 15px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.anniversary-badge {
+    background: linear-gradient(135deg, #e64230, #e2230d);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin: 8px 0;
+    display: inline-block;
+}
+
+.page-counter {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    color: #888;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    main {
+        padding-top: 100px;
+    }
+
+    .book {
+        width: 380px;
+        height: 520px;
+    }
+
+    .page-turner {
+        margin: 15px;
+    }
+
+    .page-turner i {
+        font-size: 40px;
+    }
+
+    .page-title h1 {
+        font-size: 2rem;
+    }
+
+    .cover-title {
+        font-size: 1.8rem;
+    }
+
+    .years-together {
+        font-size: 3rem;
+    }
+
+    .front-content,
+    .back-content {
+        padding: 25px 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .book {
+        width: 340px;
+        height: 480px;
+    }
+
+    .front-content,
+    .back-content {
+        padding: 20px 15px;
+    }
+}

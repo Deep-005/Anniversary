@@ -1,0 +1,831 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.gallery-hero {
+    background:linear-gradient(rgba(0, 0, 0, 0.6)), url('../gallery/img1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 50vh;
+    min-height: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+
+/* Grid Section */
+.memories-grid-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #fffaf0 0%, #fff5f5 100%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 300;
+    position: relative;
+}
+
+.section-title::after {
+    content: '💕';
+    position: absolute;
+    top: -10px;
+    right: -40px;
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.memories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 15px;
+    grid-template-areas: 
+        "large large item2 item3"
+        "large large item4 item5";
+}
+
+.memory-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.memory-item.large {
+    grid-area: large;
+    grid-row: span 2;
+}
+
+.memory-item:nth-child(2) { grid-area: item2; }
+.memory-item:nth-child(3) { grid-area: item3; }
+.memory-item:nth-child(4) { grid-area: item4; }
+.memory-item:nth-child(5) { grid-area: item5; }
+
+.memory-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.memory-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.memory-item:hover img {
+    transform: scale(1.1);
+}
+
+.memory-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,107,107,0.8) 0%, rgba(255,182,193,0.8) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.memory-item:hover .memory-overlay {
+    opacity: 1;
+}
+
+.memory-info {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.memory-info h4 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.memory-info p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    opacity: 0.9;
+}
+
+.memory-date {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Heart animation for romantic effect */
+.memory-item::before {
+    content: '💖';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.memory-item:hover::before {
+    opacity: 1;
+    animation: heartBeat 1s ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .memories-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 250px;
+        grid-template-areas: 
+            "large"
+            "item2"
+            "item3"
+            "item4"
+            "item5";
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-title::after {
+        right: -30px;
+        font-size: 1.5rem;
+    }
+}
+
+
+
+/* Carousel Section */
+.love-story-carousel-section {
+    padding: 80px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.401)), url('../gallery/img13.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousal-section-title {
+    text-align: center;
+    font-size: 3rem;
+    color: #f3f3f3;
+    margin-bottom: 15px;
+    font-weight: 300;
+    position: relative;
+}
+
+.carousal-section-title::after {
+    content: '💕';
+    position: absolute;
+    top: -10px;
+    right: -40px;
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.carousal-section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #f5f3f3;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 500px;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 40px;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.carousel-slide.active .carousel-content {
+    transform: translateY(0);
+}
+
+.carousel-content h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.carousel-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.memory-date {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 10;
+}
+
+.carousel-btn {
+    background: rgba(255,255,255,0.9);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: #ff6b6b;
+    font-size: 1.2rem;
+}
+
+.carousel-btn:hover {
+    background: white;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.indicator.active {
+    background: #ff6b6b;
+    transform: scale(1.2);
+}
+
+.indicator:hover {
+    background: rgba(255,107,107,0.8);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Heart animation for active slide */
+.carousel-slide.active::before {
+    content: '💖';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .carousel-track {
+        height: 400px;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-title::after {
+        right: -30px;
+        font-size: 1.5rem;
+    }
+    
+    .carousel-content {
+        padding: 20px;
+    }
+    
+    .carousel-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .carousel-content p {
+        font-size: 1rem;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+
+
+/* Additional Gallery Section */
+.special-moments-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #fffaf0 0%, #fff5f5 100%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 300;
+    position: relative;
+}
+
+.section-title::after {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    right: -40px;
+    font-size: 2rem;
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.moments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.moment-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    height: 300px;
+}
+
+.moment-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.moment-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.moment-item:hover img {
+    transform: scale(1.1);
+}
+
+.moment-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,107,107,0.9) 0%, rgba(255,182,193,0.9) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
+
+.moment-item:hover .moment-overlay {
+    opacity: 1;
+}
+
+.moment-overlay h4 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 400;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.1s;
+}
+
+.moment-overlay p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease 0.2s;
+}
+
+.moment-overlay .heart-icon {
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.4s ease 0.3s;
+}
+
+.moment-item:hover .moment-overlay h4,
+.moment-item:hover .moment-overlay p,
+.moment-item:hover .moment-overlay .heart-icon {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Border animation on hover */
+.moment-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+
+.moment-item:hover::before {
+    opacity: 1;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.7; transform: scale(1.1) rotate(5deg); }
+}
+
+/* Floating animation for grid items */
+.moment-item:nth-child(odd) {
+    animation: floatUp 6s ease-in-out infinite;
+}
+
+.moment-item:nth-child(even) {
+    animation: floatDown 6s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes floatDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+.moment-item:hover {
+    animation: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .moments-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-title::after {
+        right: -30px;
+        font-size: 1.5rem;
+    }
+    
+    .moment-item {
+        height: 250px;
+    }
+}
+
+/*----- Gallery -----*/
+.anniversary-gallery {
+    background: linear-gradient(135deg, #fffaf0 0%, #fff5f5 100%);
+}
+
+.g-i-header {
+    padding: 80px 20px 40px;
+    text-align: center;
+    background:linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+    color: rgb(238, 236, 236);
+}
+
+.section-title {
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.header-subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.gallery-container {
+    width: 100%;
+    height: auto;
+}
+
+.gallery-item {
+    position: relative;
+    height: 95vh;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-media,
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.caption-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 40px 30px 30px;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .caption-overlay {
+    transform: translateY(0);
+}
+
+.caption-overlay p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+}
+
+.gallery-end {
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-end-content {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.gallery-end-content p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.heart-float {
+    font-size: 3rem;
+    animation: floatHearts 3s ease-in-out infinite;
+}
+
+@keyframes floatHearts {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg); 
+        opacity: 1;
+    }
+    50% { 
+        transform: translateY(-20px) rotate(10deg); 
+        opacity: 0.8;
+    }
+}
+
+/* Romantic border animation for gallery items */
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid transparent;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-item {
+        height: 400px;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .header-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .caption-overlay {
+        padding: 20px 15px 15px;
+    }
+    
+    .caption-overlay p {
+        font-size: 1rem;
+    }
+    
+    .gallery-end-content p {
+        font-size: 1.2rem;
+    }
+}
+
+/* Scroll animation */
+.gallery-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+
+.gallery-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+

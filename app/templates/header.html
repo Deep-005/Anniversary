@@ -1,0 +1,34 @@
+{% load static %}
+
+<!-- Page-specific CSS block -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+{% endblock %}
+
+<header>
+    <nav class="nav" style="height: 10%;">
+        <div class="nav-left">
+            <i class="uil uil-bars navOpenBtn"></i>
+            <div class="logo">
+                <img class="logo-img" id="logoImage" src="{% static 'logo/logo-black.png' %}" alt="Love Logo">
+                <h1 class="logo-text">Happy Anniversary</h1>
+            </div>
+        </div>
+        
+        <ul class="nav-links">
+            <i class="uil uil-times navCloseBtn"></i>
+            <li><a href="{% url 'home' %}" id="home-nav-a" class="nav-a {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>  
+            <li><a href="{% url 'story' %}" id="about-nav-a" class="nav-a {% if request.resolver_match.url_name == 'story' %}active{% endif %}">Story</a></li>
+            <li><a href="{% url 'gallery' %}" id="gallery-nav-a" class="nav-a {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}">Gallery</a></li>
+            <li><a href="{% url 'blessings' %}" id="contact-nav-a" class="nav-a {% if request.resolver_match.url_name == 'blessings' %}active{% endif %}">Blessings</a></li>
+        </ul>
+
+        <div class="audio-btn">
+            <button class="audio-btn" id="audio" type="submit"><i class="fa fa-music"></i> Listen </button>
+        </div>
+    </nav>
+</header>
+
+{% block extra_js %}
+<script src="{% static 'js/header.js' %}"></script>
+{% endblock %}
