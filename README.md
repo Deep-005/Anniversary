@@ -2,8 +2,6 @@
 <h2>💖 Love's Celebration</h2>
 A beautiful, heartfelt web application to express your deepest feelings for your loved one and celebrate your special anniversary. Built with HTML, CSS, JavaScript, and Django.
 
-<h2>Watch live at:</h2> https://anniversary-evvb.onrender.com
-
 <h2>✨ Features</h2>
 <h3>Frontend (HTML/CSS/JS)</h3>
 Romantic Landing Page with couple photos and anniversary countdown
